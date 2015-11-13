@@ -22,6 +22,7 @@ return [
                 // global rule
                 // ModuleID/ControllerID/ActionID
                 '<action:about|contact|index>' => 'site/<action>',
+                "<action:news>" => "news/default/index"
                
             ]
         ],
@@ -31,6 +32,9 @@ return [
         ],
         'request' => [
             'baseUrl' => '/',
+        ],
+        'view' => [
+            'theme' => 'frontend\themes\basic\Theme'
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -44,6 +48,12 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+    ],
+    'modules' => [
+        'news' => [
+            'class' => 'frontend\modules\news\Module'
+        ],
+    
     ],
     'params' => $params,
 ];
