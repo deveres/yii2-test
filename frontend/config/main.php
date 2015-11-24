@@ -13,6 +13,7 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'homeUrl' => '/',
     'components' => [
+		
       'urlManager' => [
             'class' => 'yii\web\UrlManager',
             'baseUrl' => '/',

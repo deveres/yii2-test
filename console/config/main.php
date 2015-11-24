@@ -12,7 +12,7 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'console\controllers',
     'components' => [
-        'log' => [
+	    'log' => [
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',

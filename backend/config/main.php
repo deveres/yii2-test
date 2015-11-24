@@ -14,9 +14,11 @@ return [
     'modules' => [],
     'homeUrl' => '/admin',
     'components' => [
+	
 	'request' => [
             'baseUrl' => '/admin',
         ],
+		 
         'urlManager' => [
             'class' => 'yii\web\UrlManager',
             'baseUrl' => '/admin',
@@ -27,7 +29,8 @@ return [
                 // ModuleID/ControllerID/ActionID
                 '<action:index>' => 'admin/<action>',
                 '<action:login|logout>' => 'users/<action>',
-                
+                '<module:\w+>/<controller:\w+>/<action:(\w|-)+>' => '<module>/<controller>/<action>',
+                '<module:\w+>/<controller:\w+>/<action:(\w|-)+>/<id:\d+>' => '<module>/<controller>/<action>',
             ]
         ],
         'user' => [
@@ -45,6 +48,14 @@ return [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
+        ],
+    ],
+	 'modules' => [
+        'permit' => [
+            'class' => 'developeruz\db_rbac\Yii2DbRbac',
+			'params' => [
+                'userClass' => 'common\models\User'
+            ]
         ],
     ],
     'params' => $params,
